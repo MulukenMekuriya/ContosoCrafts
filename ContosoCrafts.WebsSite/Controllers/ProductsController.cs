@@ -4,20 +4,20 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ContosoCrafts.WebsSite.Controllers
 {
-    [Route("[controller")]
+    [Route("[controller]")]
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        public ProductsController(JsonFileProductService prodcutService)
+        public ProductsController(JsonFileProductService productService)
         {
-            this.productService = prodcutService;
+            this.ProductService = productService;
         }
 
-        public JsonFileProductService productService { get; }
+        public JsonFileProductService ProductService { get; }
         [HttpGet]
         public IEnumerable<Product> Get()
         {
-            return productService.GetProducts();
+            return ProductService.GetProducts();
         }
     }
 }
